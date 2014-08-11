@@ -70,24 +70,58 @@ $("#searchBt").click(function(){
 
 //添加 
 $("#addCompany").click(function(){
-	art.dialog({
-		content: '如果定义了回调函数才会出现相应的按钮',
-		  button: [
-        {
-            name: '同意',
-            callback: function () {
-                this.content('你同意了').time(2);
-                return false;
-            },
-            focus: true
-        },
-       
-        {
-            name: '关闭'
+    $.ajax({
+        url:'<?php echo $this->createUrl("company/add")?>',
+        success:function(result){
+            art.dialog({
+                title:'添加厂商',
+                content: result,
+                lock:true,
+                fixed:true,
+                width:700,
+                button: [
+                    {
+                        name: '保存',
+                        callback: function () {
+                            if($('#'))
+                            $.ajax({
+                                cache: true,
+                                type: "POST",
+                                url:'<?php echo $this->createUrl("company/create")?>',
+                                data:$('#addCompany').serialize(),
+                                async: false,
+                                error: function(request) {
+                                    alert("Connection error");
+                                },
+                                success: function(result) {
+                                    if(result==1){
+                                        art.dialog({
+                                            time: 3,
+                                            icon: 'success',
+                                            content: '厂商添加成功'
+                                        });
+                                    }else{
+                                        art.dialog({
+                                            time: 3,
+                                            icon: 'error',
+                                            content: '厂商添加失败'
+                                        });
+                                    }
+                                }
+                            });
+                        },
+                        focus: true
+                    },
+
+                    {
+                        name: '关闭'
+                    }
+                ]
+
+            });
         }
-    ] 
-		
-	});
+    });
+
 });
 
 </script>

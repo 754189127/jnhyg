@@ -20,9 +20,23 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 </div>
 
 <div class="form">
-    <div  class="panel-default" id="panel-title"><span>厂商管理列表</span></div>
-    <div class="table-list" id="table-list">
-
+    <div class="percent40">
+        <table class="tb-simple">
+            <tr>
+                <th>会员编号</th>
+                <th>会员姓名</th>
+                <th>默认地址</th>
+                <th>地址2</th>
+                <th>来源</th>
+            </tr>
+            <tr>
+                <td>322</td>
+                <td></td>
+                <td>33</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
     <div class="buttonBar">
         <input class="btn-button" id="addCompany"  type="button" value="A添加"  />

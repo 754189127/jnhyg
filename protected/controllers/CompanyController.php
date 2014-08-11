@@ -23,6 +23,13 @@ class CompanyController extends BaseController
         $this->render('index',array('list'=>$list));
     }
 
+    public function actionAdd(){
+        $this->layout = 'none';
+
+        $jzsType = $this->_setting['jzsType'];
+
+        $this->render('add',array('jzsType'=>$jzsType));
+    }
     public function actionCreate()
     {
         $model = new Company();
