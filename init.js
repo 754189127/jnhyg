@@ -182,13 +182,27 @@
   };
 
 
-
+//管理员
   env.api.manager = {
     list: "/manager/index",
     change: "/manager/update",
     add: "/manager/create",
-    del: "/manager/delete"
+    del: "/manager/delete",
   };
+
+  //管理员角色
+  env.api.manager = {
+    list: "/managerrole/index",
+    change: "/managerrole/update",
+    add: "/managerrole/create",
+    del: "/managerrole/delete",
+  };
+
+  //权限
+  env.api.privaction = {
+    list: "/privaction/index"
+  };
+
 
 
   window.env = env;
